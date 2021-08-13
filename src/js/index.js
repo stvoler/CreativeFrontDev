@@ -4,10 +4,10 @@ import LocomotiveScroll from 'locomotive-scroll';
 import Menu from './menu';
 
 // menu (<nav> element)
-const menuEl = document.querySelector('.menu');
+const menuEl = document.querySelector('[data-scroll-container]');
 
 // preload the images set as data attrs in the menu items
-preloader('.menu__item').then(() => {
+preloader('.item').then(() => {
     // initialize the smooth scroll
     const scroll = new LocomotiveScroll({el: menuEl, smooth: true});
 
@@ -16,4 +16,13 @@ preloader('.menu__item').then(() => {
 
     // initialize menu
     new Menu(menuEl);
+
+    document.getElementById('trigger').onclick = function() {
+    
+      const target = document.querySelector('#js-target');
+      scroll.scrollTo(target);
+    };
+    
 });
+
+

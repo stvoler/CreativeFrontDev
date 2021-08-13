@@ -6,7 +6,7 @@ export default class Menu {
         // el is the menu element (<nav>)
         this.DOM = {el: el};
         // the menu item elements (<a>)
-        this.DOM.menuItems = this.DOM.el.querySelectorAll('.menu__item');
+        this.DOM.menuItems = this.DOM.el.querySelectorAll('.item');
         // menu item properties that will animate as we move the mouse around the menu
         // we will be using interpolation to achieve smooth animations. 
         // the “previous” and “current” values are the values to interpolate. 

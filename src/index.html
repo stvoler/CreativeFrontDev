@@ -2,7 +2,7 @@
 <html lang="en" class="no-js">
 
 <head>
-	<meta charset="UTF-8" />
+	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>TEST. CreativeFrontDev</title>
 	<meta name="description" content="">
@@ -17,65 +17,64 @@
 	</script>
 </head>
 <body class="loading">
-	<header></header>
-  <!--
-  
-  -->
-	<main>
-    <!--
-    <section>
-      <picture>
+	<header>
+    <div class="logo">Company</div>
+    <nav class="menu">
+      <a href="#">Квартиры</a>
+      <a href="#">Коммерческая недвижимость</a>
+      <a href="#">Обратная связь</a>
+    </nav>
+    <input type="checkbox">
+    <button id="trigger" title="Menu"></button>
+  </header>
+	<main data-scroll-container>
+    <section data-scroll-section>
+      <picture title="Developer’s name">
         <source srcset="img/slide-1.jpg" type="image/webp">
         <source srcset="img/slide-1.jpg" type="image/jpeg">
         <img src="img/slide-1.jpg" alt="" style="transform: translate(0px, 0px);">
       </picture>
     </section>
-    -->
-		<nav class="menu">
-			<a class="menu__item" data-img="img/1.jpg">
+		<nav data-scroll-section class="items">
+      <a class="item" data-img="img/1.jpg">
         <img src="img/1.jpg">
-				<span class="menu__item-text">
-          <span class="menu__item-textinner">Видеть прекрасное</span>
+				<span class="item-text">
+          <span class="item-textinner">Видеть прекрасное</span>
           <p>Архитектура и дизайн</p>
         </span>
-				<span class="menu__item-sub">Архитектура и дизайн</span>
 			</a>
-      <a class="menu__item" data-img="img/1.jpg">
+      <a id="js-target" class="item" data-img="img/1.jpg">
         <img src="img/2.jpg">
-				<span class="menu__item-text">
-          <span class="menu__item-textinner">Видеть прекрасное</span>
+				<span class="item-text">
+          <span class="item-textinner">Видеть прекрасное</span>
           <p>Архитектура и дизайн</p>
         </span>
-				<span class="menu__item-sub">Архитектура и дизайн</span>
 			</a>
-      <a class="menu__item" data-img="img/1.jpg">
+      <a class="item" data-img="img/1.jpg">
         <img src="img/3.jpg">
-				<span class="menu__item-text">
-          <span class="menu__item-textinner">Видеть прекрасное</span>
+				<span class="item-text">
+          <span class="item-textinner">Видеть прекрасное</span>
           <p>Архитектура и дизайн</p>
         </span>
-				<span class="menu__item-sub">Архитектура и дизайн</span>
 			</a>
-      <a class="menu__item" data-img="img/1.jpg">
+      <a class="item" data-img="img/1.jpg">
         <img src="img/4.jpg">
-				<span class="menu__item-text">
-          <span class="menu__item-textinner">Видеть прекрасное</span>
+				<span class="item-text">
+          <span class="item-textinner">Видеть прекрасное</span>
           <p>Архитектура и дизайн</p>
         </span>
-				<span class="menu__item-sub">Архитектура и дизайн</span>
 			</a>
-      <a class="menu__item" data-img="img/1.jpg">
+      <a class="item" data-img="img/1.jpg">
         <img src="img/5.jpg">
-				<span class="menu__item-text">
-          <span class="menu__item-textinner">Видеть прекрасное</span>
+				<span class="item-text">
+          <span class="item-textinner">Видеть прекрасное</span>
           <p>Архитектура и дизайн</p>
         </span>
-				<span class="menu__item-sub">Архитектура и дизайн</span>
 			</a>
 		</nav>
 	</main>
 	<svg class="cursor" width="80" height="80" viewBox="0 0 80 80">
-		<circle class="cursor__inner" cx="40" cy="40" r="20"/>
+		<circle class="cursor__inner" cx="40" cy="40" r="20">
 	</svg>
 	<script src="js/index.js"></script>
 </body>

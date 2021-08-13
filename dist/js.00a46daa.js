@@ -8848,10 +8848,10 @@ module.exports = "/2.3ca6bb44.jpg";
 module.exports = "/3.a433b89d.jpg";
 },{}],"img/4.jpg":[function(require,module,exports) {
 module.exports = "/4.c6d96be5.jpg";
-},{}],"img/5.jpg":[function(require,module,exports) {
-module.exports = "/5.689b68fd.jpg";
 },{}],"img/m-12.jpg":[function(require,module,exports) {
 module.exports = "/m-12.fada9178.jpg";
+},{}],"img/5.jpg":[function(require,module,exports) {
+module.exports = "/5.689b68fd.jpg";
 },{}],"img/slide-1.jpg":[function(require,module,exports) {
 module.exports = "/slide-1.a490068a.jpg";
 },{}],"img/m-32.jpg":[function(require,module,exports) {
@@ -8867,7 +8867,7 @@ module.exports = {
   "slide-1": require("./slide-1.jpg"),
   "m-32": require("./m-32.jpg")
 };
-},{"./1.jpg":"img/1.jpg","./2.jpg":"img/2.jpg","./3.jpg":"img/3.jpg","./4.jpg":"img/4.jpg","./5.jpg":"img/5.jpg","./m-12.jpg":"img/m-12.jpg","./slide-1.jpg":"img/slide-1.jpg","./m-32.jpg":"img/m-32.jpg"}],"js/menuItem.js":[function(require,module,exports) {
+},{"./1.jpg":"img/1.jpg","./2.jpg":"img/2.jpg","./3.jpg":"img/3.jpg","./4.jpg":"img/4.jpg","./m-12.jpg":"img/m-12.jpg","./5.jpg":"img/5.jpg","./slide-1.jpg":"img/slide-1.jpg","./m-32.jpg":"img/m-32.jpg"}],"js/menuItem.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -8906,7 +8906,7 @@ var MenuItem = /*#__PURE__*/function () {
   function MenuItem(el, inMenuPosition, animatableProperties) {
     _classCallCheck(this, MenuItem);
 
-    // el is the <a> with class "menu__item"
+    // el is the <a> with class "item"
     this.DOM = {
       el: el
     }; // position in the Menu
@@ -8915,7 +8915,7 @@ var MenuItem = /*#__PURE__*/function () {
 
     this.animatableProperties = animatableProperties; // the item text
 
-    this.DOM.textInner = this.DOM.el.querySelector('.menu__item-textinner'); // create the image structure
+    this.DOM.textInner = this.DOM.el.querySelector('.item-textinner'); // create the image structure
 
     this.layout(); // initialize some events
 
@@ -9166,7 +9166,7 @@ var Menu = /*#__PURE__*/function () {
       el: el
     }; // the menu item elements (<a>)
 
-    this.DOM.menuItems = this.DOM.el.querySelectorAll('.menu__item'); // menu item properties that will animate as we move the mouse around the menu
+    this.DOM.menuItems = this.DOM.el.querySelectorAll('.item'); // menu item properties that will animate as we move the mouse around the menu
     // we will be using interpolation to achieve smooth animations. 
     // the “previous” and “current” values are the values to interpolate. 
     // the value applied to the element, this case the image element (this.DOM.reveal) will be a value between these two values at a specific increment. 
@@ -9247,9 +9247,9 @@ var _menu = _interopRequireDefault(require("./menu"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 // menu (<nav> element)
-var menuEl = document.querySelector('.menu'); // preload the images set as data attrs in the menu items
+var menuEl = document.querySelector('[data-scroll-container]'); // preload the images set as data attrs in the menu items
 
-(0, _preloader.preloader)('.menu__item').then(function () {
+(0, _preloader.preloader)('.item').then(function () {
   // initialize the smooth scroll
   var scroll = new _locomotiveScroll.default({
     el: menuEl,
@@ -9259,6 +9259,11 @@ var menuEl = document.querySelector('.menu'); // preload the images set as data 
   var cursor = new _cursor.default(document.querySelector('.cursor')); // initialize menu
 
   new _menu.default(menuEl);
+
+  document.getElementById('trigger').onclick = function () {
+    var target = document.querySelector('#js-target');
+    scroll.scrollTo(target);
+  };
 });
 },{"./cursor":"js/cursor.js","./preloader":"js/preloader.js","locomotive-scroll":"../node_modules/locomotive-scroll/dist/locomotive-scroll.esm.js","./menu":"js/menu.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
@@ -9288,7 +9293,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54917" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50348" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

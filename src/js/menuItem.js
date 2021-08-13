@@ -13,14 +13,14 @@ window.addEventListener('mousemove', ev => mousepos = getMousePos(ev));
 
 export default class MenuItem {
     constructor(el, inMenuPosition, animatableProperties) {
-        // el is the <a> with class "menu__item"
+        // el is the <a> with class "item"
         this.DOM = {el: el};
         // position in the Menu
         this.inMenuPosition = inMenuPosition;
         // menu item properties that will animate as we move the mouse around the menu
         this.animatableProperties = animatableProperties;
         // the item text
-        this.DOM.textInner = this.DOM.el.querySelector('.menu__item-textinner');
+        this.DOM.textInner = this.DOM.el.querySelector('.item-textinner');
         // create the image structure
         this.layout();
         // initialize some events
