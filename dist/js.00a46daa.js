@@ -8852,10 +8852,10 @@ module.exports = "/4.c6d96be5.jpg";
 module.exports = "/5.689b68fd.jpg";
 },{}],"img/m-12.jpg":[function(require,module,exports) {
 module.exports = "/m-12.fada9178.jpg";
-},{}],"img/m-32.jpg":[function(require,module,exports) {
-module.exports = "/m-32.f8f972b9.jpg";
 },{}],"img/slide-1.jpg":[function(require,module,exports) {
 module.exports = "/slide-1.a490068a.jpg";
+},{}],"img/m-32.jpg":[function(require,module,exports) {
+module.exports = "/m-32.f8f972b9.jpg";
 },{}],"img/*.jpg":[function(require,module,exports) {
 module.exports = {
   "1": require("./1.jpg"),
@@ -8864,10 +8864,10 @@ module.exports = {
   "4": require("./4.jpg"),
   "5": require("./5.jpg"),
   "m-12": require("./m-12.jpg"),
-  "m-32": require("./m-32.jpg"),
-  "slide-1": require("./slide-1.jpg")
+  "slide-1": require("./slide-1.jpg"),
+  "m-32": require("./m-32.jpg")
 };
-},{"./1.jpg":"img/1.jpg","./2.jpg":"img/2.jpg","./3.jpg":"img/3.jpg","./4.jpg":"img/4.jpg","./5.jpg":"img/5.jpg","./m-12.jpg":"img/m-12.jpg","./m-32.jpg":"img/m-32.jpg","./slide-1.jpg":"img/slide-1.jpg"}],"js/menuItem.js":[function(require,module,exports) {
+},{"./1.jpg":"img/1.jpg","./2.jpg":"img/2.jpg","./3.jpg":"img/3.jpg","./4.jpg":"img/4.jpg","./5.jpg":"img/5.jpg","./m-12.jpg":"img/m-12.jpg","./slide-1.jpg":"img/slide-1.jpg","./m-32.jpg":"img/m-32.jpg"}],"js/menuItem.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -9288,7 +9288,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61432" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54917" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

@@ -1,3 +1,36 @@
+$regular: "CoFoSans-Regular";
+$medium: "CoFoSans-Medium";
+$bold: "CoFoSans-Bold";
+$black: "CoFoSans-Black";
+
+@font-face {
+  font-family: $regular;
+  src: url("../fonts/CoFoSans-Regular.woff2") format("woff2"), url("../fonts/CoFoSans-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: $medium;
+  src: url("../fonts/CoFoSans-Medium.woff2") format("woff2"), url("../fonts/CoFoSans-Medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: $bold;
+  src: url("../fonts/CoFoSans-Bold.woff2") format("woff2"), url("../fonts/CoFoSans-Bold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: $black;
+  src: url("../fonts/CoFoSans-Black.woff2") format("woff2"), url("../fonts/CoFoSans-Black.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
 *,
 *::after,
 *::before {
@@ -23,7 +56,7 @@ body {
   --cursor-stroke-width: 1px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-family: degular, sans-serif;
+  font-family: $regular, sans-serif;
 }
 
 /* Page Loader */
@@ -90,8 +123,8 @@ a:focus {
   user-select: none;
   counter-reset: menucounter;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 10vw;
+  grid-template-columns: 1fr 1fr 0.9fr 0.9fr 1fr 1fr;
+  grid-gap: 63px;
 }
 
 .menu__item {
@@ -117,6 +150,25 @@ a:focus {
     transform: translateX(-1rem);
     transition: transform 0.3s, opacity 0.3s;
   }
+  &:nth-child(1){
+    grid-column: 1/3;
+  }
+  &:nth-child(2){
+    grid-column: 3/5;
+  }
+  &:nth-child(3){
+    grid-column: 5/7;
+  }
+  &:nth-child(4){
+    grid-column: 1/5;
+    text-align: center;
+  }
+  &:nth-child(5){
+    grid-column: 5/7;
+  }
+  img{
+    max-width: 100%;
+  }
 }
 
 .menu__item-text {
@@ -130,11 +182,14 @@ a:focus {
 
 .menu__item-textinner {
   display: block;
-  font-family: goldenbook, serif;
-  font-weight: 300;
+  font: 16px/1.2 $bold;
   text-transform: uppercase;
   white-space: nowrap;
   color: var(--color-menu);
+}
+
+p{
+  font-size: 34px;
 }
 
 .js .menu__item-textinner {
