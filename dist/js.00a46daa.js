@@ -9253,16 +9253,18 @@ var menuEl = document.querySelector('[data-scroll-container]'); // preload the i
   // initialize the smooth scroll
   var scroll = new _locomotiveScroll.default({
     el: menuEl,
-    smooth: true
+    smooth: true,
+    lerp: 0.1,
+    multiplier: 0.6
   }); // initialize custom cursor
 
   var cursor = new _cursor.default(document.querySelector('.cursor')); // initialize menu
 
   new _menu.default(menuEl);
+  var target = document.querySelector('#target-item');
 
   document.getElementById('trigger').onclick = function () {
-    var target = document.querySelector('#js-target');
-    scroll.scrollTo(target);
+    scroll.scrollTo(target, -200, 1300, [.74, .2, 1, -0.22], true);
   };
 });
 },{"./cursor":"js/cursor.js","./preloader":"js/preloader.js","locomotive-scroll":"../node_modules/locomotive-scroll/dist/locomotive-scroll.esm.js","./menu":"js/menu.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {

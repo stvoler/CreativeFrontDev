@@ -9,7 +9,7 @@ const menuEl = document.querySelector('[data-scroll-container]');
 // preload the images set as data attrs in the menu items
 preloader('.item').then(() => {
     // initialize the smooth scroll
-    const scroll = new LocomotiveScroll({el: menuEl, smooth: true});
+    const scroll = new LocomotiveScroll({el: menuEl, smooth: true, lerp: 0.1, multiplier: 0.6});
 
     // initialize custom cursor
     const cursor = new Cursor(document.querySelector('.cursor'));
@@ -17,12 +17,12 @@ preloader('.item').then(() => {
     // initialize menu
     new Menu(menuEl);
 
+    const target = document.querySelector('#target-item');
+
     document.getElementById('trigger').onclick = function() {
-    
-      const target = document.querySelector('#js-target');
-      scroll.scrollTo(target);
+      scroll.scrollTo(target, -200, 1300, [.74,.2,1,-0.22], true)
     };
-    
+
 });
 
 
