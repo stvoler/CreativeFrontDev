@@ -11132,7 +11132,7 @@ var menuEl = document.querySelector('[data-scroll-container]');
   }, {
     delay: 2,
     duration: 4.5,
-    translateY: 320,
+    translateY: 0,
     scale: 0.24,
     ease: "[0.74,0.2,1,-0.22]"
   }).to(".item.active", {
@@ -11197,7 +11197,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53335" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50743" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
