@@ -47,11 +47,11 @@ html{
 
 body {
   margin: 0;
-  --color-text: #111;
-  --color-bg: #edeee9;
-  --color-link: #000;
-  --color-link-hover: #000;
-  --color-menu: #000;
+  --color-text: #112200;
+  --color-bg: #E5E5E5;
+  --color-link: #112200;
+  --color-link-hover: #414141;
+  --color-menu: #112200;
   --color-menu-hover: #E7411F;
   color: var(--color-text);
   background-color: var(--color-bg);
@@ -109,12 +109,12 @@ header {
 
   .logo{
     font: 3.4rem/0.9 $bold;
-    color: #112200;
+    color: var(--color-text);
     margin: 18px 0 auto 0;
     grid-column-start: 2;
   }
 
-  .minput{
+  .trigger-input{
     display: block;
     width: 81px;
     height: 81px;
@@ -127,11 +127,11 @@ header {
     order: 3;
     -webkit-touch-callout: none;
     &:checked ~ #trigger {
-      font-size: 2rem;
+      filter: grayscale(0.81);
     }
 
     &:checked ~ .menu {
-      transform: translateY(-100%);
+      filter: opacity(0);
     }
   }
 }
@@ -144,7 +144,7 @@ header {
   font:1.8rem $medium;
   transition: transform 0.3s ease-out;
   a{
-    color: #112200;
+    color: var(--color-link);
     margin-bottom: 30px;
   }
 }
@@ -157,30 +157,21 @@ header {
   width: 81px;
   height: 81px;
   border: none;
-  background: #E7411F;
+  background: var(--color-menu-hover);
   background-size: 100% 3px;
-  transition: background-size 0.3s ease-in-out;
+  transition: filter 0.3s ease-in-out;
   cursor: pointer;
   outline: none;
   z-index: 10;
   margin: 0 0 0 auto;
   order: 3;
-  font: 1.6rem "CoFoSans-Bold";
+  font: 1.6rem $bold;
   
   &:before{
     content: attr(title);
     color: white;
     text-transform: uppercase;
     display: block;
-    transition: font-size 0.2s ease-in-out;
-  }
-
-  &.active {
-    background-size: 0 0;
-
-    &:before {
-      transform: translateY(275%) rotate(45deg);
-    }
   }
 }
 
@@ -208,14 +199,14 @@ a {
   grid-template-columns: 75px 1fr 1fr 0.9fr 0.9fr 1fr 1fr 75px;
   grid-gap: 63px;
   &.active{
-    padding: 113px 0 0 0 !important;
+    padding-top: 213px !important;
     .item.active{
       grid-column: 4/6;
       order: 2;
       margin: auto;
       height: auto;
       font-family: $regular;
-      color: #120907 !important;
+      color: var(--color-text) !important;
       picture{
         &::before{
           display: none;
@@ -285,7 +276,7 @@ a {
     height: 100vh;
     position: relative;
     font:16.9rem/0.81 $medium;
-    color: #112200;
+    color: var(--color-text);
     &:before{
       display: none;
     }
@@ -340,7 +331,7 @@ p {
   transform: translateY(100%);
 }
 
-.hover-reveal {
+.hover {
   position: absolute;
   z-index: 0;
   width: 230px;
@@ -351,22 +342,21 @@ p {
   left: 0;
   pointer-events: none;
   opacity: 0;
-}
 
-.hover-reveal__inner {
-  overflow: hidden;
-}
-
-.hover-reveal__inner,
-.hover-reveal__img {
+  &-inner,
+  &-img {
   width: 100%;
   height: 100%;
   position: relative;
 }
+  &-inner {
+    overflow: hidden;
+  }
 
-.hover-reveal__img {
-  background-size: cover;
-  background-position: 50% 50%;
+  &-img {
+    background-size: cover;
+    background-position: 50% 50%;
+  }
 }
 
 .cursor {
@@ -432,7 +422,7 @@ html.has-scroll-dragging {
   position: absolute;
   top: 0;
   right: 0;
-  background-color: black;
+  background-color: var(--color-text);
   opacity: 0.5;
   width: 7px;
   border-radius: 10px;

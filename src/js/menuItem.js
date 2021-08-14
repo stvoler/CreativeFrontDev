@@ -17,24 +17,16 @@ export default class MenuItem {
         this.layout();
         this.initEvents();
     }
-    // create the image structure
-    // we want to add/append to the menu item the following html:
-    // <div class="hover-reveal">
-    //   <div class="hover-reveal__inner" style="overflow: hidden;">
-    //     <div class="hover-reveal__img" style="background-image: url(pathToImage);">
-    //     </div>
-    //   </div>
-    // </div>
     layout() {
         // this is the element that gets its position animated (and perhaps other properties like the rotation etc..)
         this.DOM.reveal = document.createElement('div');
-        this.DOM.reveal.className = 'hover-reveal';
+        this.DOM.reveal.className = 'hover';
         // the next two elements could actually be only one, the image element
         // adding an extra wrapper (revealInner) around the image element with overflow hidden, gives us the possibility to scale the image inside
         this.DOM.revealInner = document.createElement('div');
-        this.DOM.revealInner.className = 'hover-reveal__inner';
+        this.DOM.revealInner.className = 'hover-inner';
         this.DOM.revealImage = document.createElement('div');
-        this.DOM.revealImage.className = 'hover-reveal__img';
+        this.DOM.revealImage.className = 'hover-img';
         this.DOM.revealImage.style.backgroundImage = `url(${images[this.inMenuPosition][1]})`;
 
         this.DOM.revealInner.appendChild(this.DOM.revealImage);

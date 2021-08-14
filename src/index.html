@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="no-js">
+<html class="js" lang="ru">
 
 <head>
 	<meta charset="UTF-8">
@@ -10,26 +10,21 @@
 	<meta name="author" content="">
 	<link rel="shortcut icon" href="favicon.ico">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
-	<script>
-	document.documentElement.className = "js";
-	var supportsCssVars = function() { var e, t = document.createElement("style"); return t.innerHTML = "root: { --tmp-var: bold; }", document.head.appendChild(t), e = !!(window.CSS && window.CSS.supports && window.CSS.supports("font-weight", "var(--tmp-var)")), t.parentNode.removeChild(t), e };
-	supportsCssVars() || alert("Please view this demo in a modern browser that supports CSS Variables.");
-	</script>
 </head>
 <body class="loading">
 	<header>
     <div class="logo">Company</div>
-    <input class="minput" type="checkbox">
+    <input class="trigger-input" type="checkbox">
     <button id="trigger" title="Menu"></button>
     <nav class="menu">
-      <a data-img="img/1.jpg" href="#">Квартиры</a>
+      <a href="#">Квартиры</a>
       <a href="#">Коммерческая недвижимость</a>
       <a href="#">Обратная связь</a>
     </nav>
   </header>
   <main data-scroll-container>
     <nav data-scroll-repeat class="items">
-      <a data-scroll data-scroll-speed="0.3" class="item" data-img="img/1.jpg">
+      <a data-scroll data-scroll-speed="0.3" class="item">
         <picture>
           <source srcset="img/1.jpg" type="image/webp">
           <source srcset="img/1.jpg" type="image/jpeg">
@@ -51,7 +46,7 @@
           <p>Архитектура и дизайн</p>
         </span>
 			</a>
-      <a data-scroll data-scroll-speed="0.7" class="item" data-img="img/1.jpg">
+      <a data-scroll data-scroll-speed="0.7" class="item">
         <picture>
           <source srcset="img/3.jpg" type="image/webp">
           <source srcset="img/3.jpg" type="image/jpeg">
@@ -62,7 +57,7 @@
           <p>Архитектура и дизайн</p>
         </span>
 			</a>
-      <a data-scroll data-scroll-speed="3.5" class="item" data-img="img/1.jpg">
+      <a data-scroll data-scroll-speed="1" class="item">
         <picture>
           <source srcset="img/4.jpg" type="image/webp">
           <source srcset="img/4.jpg" type="image/jpeg">
@@ -73,7 +68,7 @@
           <p>Архитектура и дизайн</p>
         </span>
 			</a>
-      <a data-scroll data-scroll-speed="4.5" class="item" data-img="img/1.jpg">
+      <a data-scroll data-scroll-speed="5" class="item">
         <picture>
           <source srcset="img/5.jpg" type="image/webp">
           <source srcset="img/5.jpg" type="image/jpeg">

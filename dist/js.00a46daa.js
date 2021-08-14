@@ -10770,28 +10770,20 @@ var MenuItem = /*#__PURE__*/function () {
     this.DOM.textInner = this.DOM.el.querySelector('h4');
     this.layout();
     this.initEvents();
-  } // create the image structure
-  // we want to add/append to the menu item the following html:
-  // <div class="hover-reveal">
-  //   <div class="hover-reveal__inner" style="overflow: hidden;">
-  //     <div class="hover-reveal__img" style="background-image: url(pathToImage);">
-  //     </div>
-  //   </div>
-  // </div>
-
+  }
 
   _createClass(MenuItem, [{
     key: "layout",
     value: function layout() {
       // this is the element that gets its position animated (and perhaps other properties like the rotation etc..)
       this.DOM.reveal = document.createElement('div');
-      this.DOM.reveal.className = 'hover-reveal'; // the next two elements could actually be only one, the image element
+      this.DOM.reveal.className = 'hover'; // the next two elements could actually be only one, the image element
       // adding an extra wrapper (revealInner) around the image element with overflow hidden, gives us the possibility to scale the image inside
 
       this.DOM.revealInner = document.createElement('div');
-      this.DOM.revealInner.className = 'hover-reveal__inner';
+      this.DOM.revealInner.className = 'hover-inner';
       this.DOM.revealImage = document.createElement('div');
-      this.DOM.revealImage.className = 'hover-reveal__img';
+      this.DOM.revealImage.className = 'hover-img';
       this.DOM.revealImage.style.backgroundImage = "url(".concat(images[this.inMenuPosition][1], ")");
       this.DOM.revealInner.appendChild(this.DOM.revealImage);
       this.DOM.reveal.appendChild(this.DOM.revealInner);
@@ -11098,6 +11090,7 @@ var menuEl = document.querySelector('[data-scroll-container]');
   new _menu.default(menuEl);
   var target = document.querySelector('.item.active');
   var items = document.querySelector('.items');
+  var menu = document.querySelector('.menu');
 
   _gsap.gsap.registerPlugin(_ScrollTrigger.ScrollTrigger);
 
@@ -11150,7 +11143,17 @@ var menuEl = document.querySelector('[data-scroll-container]');
     duration: 2,
     color: "#edeee9",
     fontSize: 35
-  }, 0);
+  }, 0).to(".menu", {
+    duration: 3,
+    translateY: -300
+  }, 0).to("#trigger", {
+    duration: 4,
+    translateX: 100
+  }, 0).fromTo("header", {
+    background: "linear-gradient(to bottom, rgba(229,229,229,0) 0%,rgba(0,0,0,0) 100%)"
+  }, {
+    background: "linear-gradient(to bottom, rgba(229,229,229,0.65) 0%,rgba(0,0,0,0) 100%)"
+  });
 
   function aClass() {
     items.classList.add("active");
@@ -11194,7 +11197,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54907" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53335" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
