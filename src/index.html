@@ -27,44 +27,54 @@
     <input type="checkbox">
     <button id="trigger" title="Menu"></button>
   </header>
-	<main data-scroll-container>
-    <section data-scroll-section data-scroll-target="slide" data-scroll-speed="0.3">
+  <div class="fill-page"></div>
+  <main data-scroll-container>
+    <!--
+    <section data-scroll-repeat data-scroll-call="slide" class="slide">
       <picture title="Developer’s name">
         <source srcset="img/slide-1.jpg" type="image/webp">
         <source srcset="img/slide-1.jpg" type="image/jpeg">
         <img src="img/slide-1.jpg" alt="" style="transform: translate(0px, 0px);">
       </picture>
+      <span class="line line-1"></span>
     </section>
-		<nav data-scroll-section class="items">
-      <a class="item" data-img="img/1.jpg">
+  -->
+    <nav data-scroll-container data-scroll-repeat data-scroll-call="items" class="items">
+      <a data-scroll class="item" data-img="img/1.jpg">
         <img src="img/1.jpg">
 				<span class="item-text">
           <span class="item-textinner">Видеть прекрасное</span>
           <p>Архитектура и дизайн</p>
         </span>
+        <span class="line line-2"></span>
 			</a>
-      <a id="target-item" class="item" data-img="img/1.jpg">
-        <img src="img/2.jpg">
+      <a data-scroll data-scroll-speed="4" id="target-item" class="item active" data-img="img/1.jpg">
+        <picture title="Developer’s name">
+          <source srcset="img/slide-1.jpg" type="image/webp">
+          <source srcset="img/slide-1.jpg" type="image/jpeg">
+          <img src="img/slide-1.jpg" alt="Developer’s name">
+        </picture>
 				<span class="item-text">
           <span class="item-textinner">Видеть прекрасное</span>
           <p>Архитектура и дизайн</p>
         </span>
+        <span class="line line-1"></span>
 			</a>
-      <a class="item" data-img="img/1.jpg">
+      <a data-scroll class="item" data-img="img/1.jpg">
         <img src="img/3.jpg">
 				<span class="item-text">
           <span class="item-textinner">Видеть прекрасное</span>
           <p>Архитектура и дизайн</p>
         </span>
 			</a>
-      <a class="item" data-img="img/1.jpg">
+      <a data-scroll class="item" data-img="img/1.jpg">
         <img src="img/4.jpg">
 				<span class="item-text">
           <span class="item-textinner">Видеть прекрасное</span>
           <p>Архитектура и дизайн</p>
         </span>
 			</a>
-      <a class="item" data-img="img/1.jpg">
+      <a data-scroll class="item" data-img="img/1.jpg">
         <img src="img/5.jpg">
 				<span class="item-text">
           <span class="item-textinner">Видеть прекрасное</span>
@@ -73,8 +83,9 @@
 			</a>
 		</nav>
 	</main>
-	<svg class="cursor" width="80" height="80" viewBox="0 0 80 80">
-		<circle class="cursor__inner" cx="40" cy="40" r="20">
+  <progress max="100" value="0"></progress>
+	<svg class="cursor" width="27" height="27" viewBox="0 0 80 80">
+		<circle class="cursor__inner" cx="23" cy="23" r="18">
 	</svg>
 	<script src="js/index.js"></script>
 </body>

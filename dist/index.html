@@ -31,44 +31,54 @@ supportsCssVars() || alert("Please view this demo in a modern browser that suppo
     <input type="checkbox">
     <button id="trigger" title="Menu"></button>
   </header>
-	<main data-scroll-container="">
-    <section data-scroll-section="" data-scroll-target="slide" data-scroll-speed="0.3">
+  <div class="fill-page"></div>
+  <main data-scroll-container="">
+    <!--
+    <section data-scroll-repeat data-scroll-call="slide" class="slide">
       <picture title="Developer’s name">
-        <source srcset="/slide-1.a490068a.jpg" type="image/webp">
-        <source srcset="/slide-1.a490068a.jpg" type="image/jpeg">
-        <img src="/slide-1.a490068a.jpg" alt="" style="transform: translate(0px, 0px);">
+        <source srcset="img/slide-1.jpg" type="image/webp">
+        <source srcset="img/slide-1.jpg" type="image/jpeg">
+        <img src="img/slide-1.jpg" alt="" style="transform: translate(0px, 0px);">
       </picture>
+      <span class="line line-1"></span>
     </section>
-		<nav data-scroll-section="" class="items">
-      <a class="item" data-img="img/1.jpg">
+  -->
+    <nav data-scroll-container="" data-scroll-repeat="" data-scroll-call="items" class="items">
+      <a data-scroll="" class="item" data-img="img/1.jpg">
         <img src="/1.dc197a9a.jpg">
 				<span class="item-text">
           <span class="item-textinner">Видеть прекрасное</span>
           <p>Архитектура и дизайн</p>
         </span>
+        <span class="line line-2"></span>
 			</a>
-      <a id="target-item" class="item" data-img="img/1.jpg">
-        <img src="/2.3ca6bb44.jpg">
+      <a data-scroll="" data-scroll-speed="4" id="target-item" class="item active" data-img="img/1.jpg">
+        <picture title="Developer’s name">
+          <source srcset="/slide-1.a490068a.jpg" type="image/webp">
+          <source srcset="/slide-1.a490068a.jpg" type="image/jpeg">
+          <img src="/slide-1.a490068a.jpg" alt="Developer’s name">
+        </picture>
 				<span class="item-text">
           <span class="item-textinner">Видеть прекрасное</span>
           <p>Архитектура и дизайн</p>
         </span>
+        <span class="line line-1"></span>
 			</a>
-      <a class="item" data-img="img/1.jpg">
+      <a data-scroll="" class="item" data-img="img/1.jpg">
         <img src="/3.a433b89d.jpg">
 				<span class="item-text">
           <span class="item-textinner">Видеть прекрасное</span>
           <p>Архитектура и дизайн</p>
         </span>
 			</a>
-      <a class="item" data-img="img/1.jpg">
+      <a data-scroll="" class="item" data-img="img/1.jpg">
         <img src="/4.c6d96be5.jpg">
 				<span class="item-text">
           <span class="item-textinner">Видеть прекрасное</span>
           <p>Архитектура и дизайн</p>
         </span>
 			</a>
-      <a class="item" data-img="img/1.jpg">
+      <a data-scroll="" class="item" data-img="img/1.jpg">
         <img src="/5.689b68fd.jpg">
 				<span class="item-text">
           <span class="item-textinner">Видеть прекрасное</span>
@@ -77,8 +87,9 @@ supportsCssVars() || alert("Please view this demo in a modern browser that suppo
 			</a>
 		</nav>
 	</main>
-	<svg class="cursor" width="80" height="80" viewBox="0 0 80 80">
-		<circle class="cursor__inner" cx="40" cy="40" r="20">
+  <progress max="100" value="0"></progress>
+	<svg class="cursor" width="27" height="27" viewBox="0 0 80 80">
+		<circle class="cursor__inner" cx="23" cy="23" r="18">
 	</circle></svg>
 	<script src="/js.00a46daa.js"></script>
 </body>
