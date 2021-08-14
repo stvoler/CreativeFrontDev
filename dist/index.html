@@ -23,71 +23,73 @@ supportsCssVars() || alert("Please view this demo in a modern browser that suppo
 <body class="loading">
 	<header>
     <div class="logo">Company</div>
+    <input class="minput" type="checkbox">
+    <button id="trigger" title="Menu"></button>
     <nav class="menu">
-      <a href="#">Квартиры</a>
+      <a data-img="img/1.jpg" href="#">Квартиры</a>
       <a href="#">Коммерческая недвижимость</a>
       <a href="#">Обратная связь</a>
     </nav>
-    <input type="checkbox">
-    <button id="trigger" title="Menu"></button>
   </header>
-  <div class="fill-page"></div>
   <main data-scroll-container="">
-    <!--
-    <section data-scroll-repeat data-scroll-call="slide" class="slide">
-      <picture title="Developer’s name">
-        <source srcset="img/slide-1.jpg" type="image/webp">
-        <source srcset="img/slide-1.jpg" type="image/jpeg">
-        <img src="img/slide-1.jpg" alt="" style="transform: translate(0px, 0px);">
-      </picture>
-      <span class="line line-1"></span>
-    </section>
-  -->
-    <nav data-scroll-container="" data-scroll-repeat="" data-scroll-call="items" class="items">
-      <a data-scroll="" class="item" data-img="img/1.jpg">
-        <img src="/1.dc197a9a.jpg">
+    <nav data-scroll-repeat="" class="items">
+      <a data-scroll="" data-scroll-speed="0.3" class="item" data-img="img/1.jpg">
+        <picture>
+          <source srcset="/1.dc197a9a.jpg" type="image/webp">
+          <source srcset="/1.dc197a9a.jpg" type="image/jpeg">
+          <img src="/1.dc197a9a.jpg" alt="Img 1">
+        </picture>
 				<span class="item-text">
-          <span class="item-textinner">Видеть прекрасное</span>
+          <h4>Видеть прекрасное</h4>
           <p>Архитектура и дизайн</p>
         </span>
-        <span class="line line-2"></span>
 			</a>
-      <a data-scroll="" data-scroll-speed="4" id="target-item" class="item active" data-img="img/1.jpg">
+      <a data-scroll="" data-scroll-speed="0.8" class="item active">
         <picture title="Developer’s name">
           <source srcset="/slide-1.a490068a.jpg" type="image/webp">
           <source srcset="/slide-1.a490068a.jpg" type="image/jpeg">
           <img src="/slide-1.a490068a.jpg" alt="Developer’s name">
         </picture>
 				<span class="item-text">
-          <span class="item-textinner">Видеть прекрасное</span>
-          <p>Архитектура и дизайн</p>
-        </span>
-        <span class="line line-1"></span>
-			</a>
-      <a data-scroll="" class="item" data-img="img/1.jpg">
-        <img src="/3.a433b89d.jpg">
-				<span class="item-text">
-          <span class="item-textinner">Видеть прекрасное</span>
+          <h4>Видеть прекрасное</h4>
           <p>Архитектура и дизайн</p>
         </span>
 			</a>
-      <a data-scroll="" class="item" data-img="img/1.jpg">
-        <img src="/4.c6d96be5.jpg">
+      <a data-scroll="" data-scroll-speed="0.7" class="item" data-img="img/1.jpg">
+        <picture>
+          <source srcset="/3.a433b89d.jpg" type="image/webp">
+          <source srcset="/3.a433b89d.jpg" type="image/jpeg">
+          <img src="/3.a433b89d.jpg" alt="Img 1">
+        </picture>
 				<span class="item-text">
-          <span class="item-textinner">Видеть прекрасное</span>
+          <h4>Видеть прекрасное</h4>
           <p>Архитектура и дизайн</p>
         </span>
 			</a>
-      <a data-scroll="" class="item" data-img="img/1.jpg">
-        <img src="/5.689b68fd.jpg">
+      <a data-scroll="" data-scroll-speed="3.5" class="item" data-img="img/1.jpg">
+        <picture>
+          <source srcset="/4.c6d96be5.jpg" type="image/webp">
+          <source srcset="/4.c6d96be5.jpg" type="image/jpeg">
+          <img src="/4.c6d96be5.jpg" alt="Img 1">
+        </picture>
 				<span class="item-text">
-          <span class="item-textinner">Видеть прекрасное</span>
+          <h4>Видеть прекрасное</h4></span>
           <p>Архитектура и дизайн</p>
-        </span>
+        
+			</a>
+      <a data-scroll="" data-scroll-speed="4.5" class="item" data-img="img/1.jpg">
+        <picture>
+          <source srcset="/5.689b68fd.jpg" type="image/webp">
+          <source srcset="/5.689b68fd.jpg" type="image/jpeg">
+          <img src="/5.689b68fd.jpg" alt="Img 1">
+        </picture>
+				<span class="item-text">
+          <h4>Видеть прекрасное</h4></span>
+          <p>Архитектура и дизайн</p>
+        
 			</a>
 		</nav>
 	</main>
-  <progress max="100" value="0"></progress>
 	<svg class="cursor" width="27" height="27" viewBox="0 0 80 80">
 		<circle class="cursor__inner" cx="23" cy="23" r="18">
 	</circle></svg>

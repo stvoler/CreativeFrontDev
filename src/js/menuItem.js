@@ -2,28 +2,19 @@ import {gsap} from 'gsap';
 import { map, lerp, clamp, getMousePos } from './utils';
 const images = Object.entries(require('../img/*.jpg'));
 
-// track the mouse position
 let mousepos = {x: 0, y: 0};
-// cache the mouse position
 let mousePosCache = mousepos;
 let direction = {x: mousePosCache.x-mousepos.x, y: mousePosCache.y-mousepos.y};
 
-// update mouse position when moving the mouse
 window.addEventListener('mousemove', ev => mousepos = getMousePos(ev));
 
 export default class MenuItem {
     constructor(el, inMenuPosition, animatableProperties) {
-        // el is the <a> with class "item"
         this.DOM = {el: el};
-        // position in the Menu
         this.inMenuPosition = inMenuPosition;
-        // menu item properties that will animate as we move the mouse around the menu
         this.animatableProperties = animatableProperties;
-        // the item text
-        this.DOM.textInner = this.DOM.el.querySelector('.item-textinner');
-        // create the image structure
+        this.DOM.textInner = this.DOM.el.querySelector('h4');
         this.layout();
-        // initialize some events
         this.initEvents();
     }
     // create the image structure

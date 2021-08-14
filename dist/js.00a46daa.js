@@ -10715,10 +10715,6 @@ module.exports = "/3.a433b89d.jpg";
 module.exports = "/4.c6d96be5.jpg";
 },{}],"img/5.jpg":[function(require,module,exports) {
 module.exports = "/5.689b68fd.jpg";
-},{}],"img/m-12.jpg":[function(require,module,exports) {
-module.exports = "/m-12.fada9178.jpg";
-},{}],"img/m-32.jpg":[function(require,module,exports) {
-module.exports = "/m-32.f8f972b9.jpg";
 },{}],"img/slide-1.jpg":[function(require,module,exports) {
 module.exports = "/slide-1.a490068a.jpg";
 },{}],"img/*.jpg":[function(require,module,exports) {
@@ -10728,11 +10724,9 @@ module.exports = {
   "3": require("./3.jpg"),
   "4": require("./4.jpg"),
   "5": require("./5.jpg"),
-  "m-12": require("./m-12.jpg"),
-  "m-32": require("./m-32.jpg"),
   "slide-1": require("./slide-1.jpg")
 };
-},{"./1.jpg":"img/1.jpg","./2.jpg":"img/2.jpg","./3.jpg":"img/3.jpg","./4.jpg":"img/4.jpg","./5.jpg":"img/5.jpg","./m-12.jpg":"img/m-12.jpg","./m-32.jpg":"img/m-32.jpg","./slide-1.jpg":"img/slide-1.jpg"}],"js/menuItem.js":[function(require,module,exports) {
+},{"./1.jpg":"img/1.jpg","./2.jpg":"img/2.jpg","./3.jpg":"img/3.jpg","./4.jpg":"img/4.jpg","./5.jpg":"img/5.jpg","./slide-1.jpg":"img/slide-1.jpg"}],"js/menuItem.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -10750,19 +10744,16 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
-var images = Object.entries(require('../img/*.jpg')); // track the mouse position
-
+var images = Object.entries(require('../img/*.jpg'));
 var mousepos = {
   x: 0,
   y: 0
-}; // cache the mouse position
-
+};
 var mousePosCache = mousepos;
 var direction = {
   x: mousePosCache.x - mousepos.x,
   y: mousePosCache.y - mousepos.y
-}; // update mouse position when moving the mouse
-
+};
 window.addEventListener('mousemove', function (ev) {
   return mousepos = (0, _utils.getMousePos)(ev);
 });
@@ -10771,19 +10762,13 @@ var MenuItem = /*#__PURE__*/function () {
   function MenuItem(el, inMenuPosition, animatableProperties) {
     _classCallCheck(this, MenuItem);
 
-    // el is the <a> with class "item"
     this.DOM = {
       el: el
-    }; // position in the Menu
-
-    this.inMenuPosition = inMenuPosition; // menu item properties that will animate as we move the mouse around the menu
-
-    this.animatableProperties = animatableProperties; // the item text
-
-    this.DOM.textInner = this.DOM.el.querySelector('.item-textinner'); // create the image structure
-
-    this.layout(); // initialize some events
-
+    };
+    this.inMenuPosition = inMenuPosition;
+    this.animatableProperties = animatableProperties;
+    this.DOM.textInner = this.DOM.el.querySelector('h4');
+    this.layout();
     this.initEvents();
   } // create the image structure
   // we want to add/append to the menu item the following html:
@@ -11026,54 +11011,40 @@ var Menu = /*#__PURE__*/function () {
 
     _classCallCheck(this, Menu);
 
-    // el is the menu element (<nav>)
     this.DOM = {
       el: el
-    }; // the menu item elements (<a>)
-
-    this.DOM.menuItems = this.DOM.el.querySelectorAll('.item'); // menu item properties that will animate as we move the mouse around the menu
-    // we will be using interpolation to achieve smooth animations. 
-    // the “previous” and “current” values are the values to interpolate. 
-    // the value applied to the element, this case the image element (this.DOM.reveal) will be a value between these two values at a specific increment. 
-    // the amt is the amount to interpolate.
-
+    };
+    this.DOM.menuItems = this.DOM.el.querySelectorAll('.item');
     this.animatableProperties = {
-      // translationX
       tx: {
         previous: 0,
         current: 0,
         amt: 0.08
       },
-      // translationY
       ty: {
         previous: 0,
         current: 0,
         amt: 0.08
       },
-      // Rotation angle
       rotation: {
         previous: 0,
         current: 0,
         amt: 0.08
       },
-      // CSS filter (brightness) value
       brightness: {
         previous: 1,
         current: 1,
         amt: 0.08
       }
-    }; // array of MenuItem instances
-
-    this.menuItems = []; // initialize the MenuItems
+    };
+    this.menuItems = [];
 
     _toConsumableArray(this.DOM.menuItems).forEach(function (item, pos) {
       return _this.menuItems.push(new _menuItem.default(item, pos, _this.animatableProperties));
-    }); // show the menu items (initial animation where each menu item gets revealed)
-
+    });
 
     this.showMenuItems();
-  } // initial animation for revealing the menu items
-
+  }
 
   _createClass(Menu, [{
     key: "showMenuItems",
@@ -11115,26 +11086,18 @@ var _menu = _interopRequireDefault(require("./menu"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-_gsap.gsap.registerPlugin(_ScrollTrigger.ScrollTrigger); // menu (<nav> element)
+_gsap.gsap.registerPlugin(_ScrollTrigger.ScrollTrigger);
 
-
-var menuEl = document.querySelector('[data-scroll-container]'); // preload the images set as data attrs in the menu items
-
+var menuEl = document.querySelector('[data-scroll-container]');
 (0, _preloader.preloader)('.item').then(function () {
-  // initialize the smooth scroll
   var scroll = new _locomotiveScroll.default({
     el: menuEl,
     smooth: true
-  }); // initialize custom cursor
-
-  var cursor = new _cursor.default(document.querySelector('.cursor')); // initialize menu
-
+  });
+  var cursor = new _cursor.default(document.querySelector('.cursor'));
   new _menu.default(menuEl);
   var target = document.querySelector('.item.active');
-
-  document.getElementById('trigger').onclick = function () {
-    scroll.scrollTo(target, -200, 1300, [.74, .2, 1, -0.22], true);
-  };
+  var items = document.querySelector('.items');
 
   _gsap.gsap.registerPlugin(_ScrollTrigger.ScrollTrigger);
 
@@ -11162,29 +11125,39 @@ var menuEl = document.querySelector('[data-scroll-container]'); // preload the i
   var tl = _gsap.gsap.timeline({
     scrollTrigger: {
       trigger: ".item.active",
+      repeat: true,
       scrub: true,
-      pin: true,
-      start: "50% 50%",
-      end: "+=100%"
+      pin: ".items",
+      start: "0 0",
+      end: "+=126%"
     },
-    onComplete: aClass
+    onComplete: aClass,
+    onUpdate: rClass
   }).fromTo(".item.active img", {
     translateY: 0,
     scale: 1
   }, {
     delay: 2,
     duration: 4.5,
-    translateY: 1000,
+    translateY: 320,
     scale: 0.24,
     ease: "[0.74,0.2,1,-0.22]"
-  }).from(".line-1", {
-    scaleX: 0,
-    ease: "none",
-    transformOrigin: "left top"
+  }).to(".item.active", {
+    duration: 3,
+    fontSize: 108
+  }, 0).to(".item.active", {
+    delay: 5,
+    duration: 2,
+    color: "#edeee9",
+    fontSize: 35
   }, 0);
 
   function aClass() {
-    target.classList.add("gr");
+    items.classList.add("active");
+  }
+
+  function rClass() {
+    items.classList.remove("active");
   }
 
   _ScrollTrigger.ScrollTrigger.addEventListener("refresh", function () {
@@ -11221,7 +11194,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50664" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54907" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
