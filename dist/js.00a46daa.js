@@ -10705,28 +10705,25 @@ var _default$3 = /*#__PURE__*/function () {
 
 var _default2 = _default$3;
 exports.default = _default2;
-},{}],"img/1.jpg":[function(require,module,exports) {
-module.exports = "/1.dc197a9a.jpg";
-},{}],"img/2.jpg":[function(require,module,exports) {
-module.exports = "/2.3ca6bb44.jpg";
-},{}],"img/3.jpg":[function(require,module,exports) {
-module.exports = "/3.a433b89d.jpg";
-},{}],"img/4.jpg":[function(require,module,exports) {
-module.exports = "/4.c6d96be5.jpg";
-},{}],"img/5.jpg":[function(require,module,exports) {
-module.exports = "/5.689b68fd.jpg";
-},{}],"img/slide-1.jpg":[function(require,module,exports) {
-module.exports = "/slide-1.a490068a.jpg";
-},{}],"img/*.jpg":[function(require,module,exports) {
+},{}],"img/1.gif":[function(require,module,exports) {
+module.exports = "/1.36387da8.gif";
+},{}],"img/2.gif":[function(require,module,exports) {
+module.exports = "/2.6a53b660.gif";
+},{}],"img/3.gif":[function(require,module,exports) {
+module.exports = "/3.da0d8e8c.gif";
+},{}],"img/4.gif":[function(require,module,exports) {
+module.exports = "/4.c56b3f35.gif";
+},{}],"img/5.gif":[function(require,module,exports) {
+module.exports = "/5.d14f3e33.gif";
+},{}],"img/*.gif":[function(require,module,exports) {
 module.exports = {
-  "1": require("./1.jpg"),
-  "2": require("./2.jpg"),
-  "3": require("./3.jpg"),
-  "4": require("./4.jpg"),
-  "5": require("./5.jpg"),
-  "slide-1": require("./slide-1.jpg")
+  "1": require("./1.gif"),
+  "2": require("./2.gif"),
+  "3": require("./3.gif"),
+  "4": require("./4.gif"),
+  "5": require("./5.gif")
 };
-},{"./1.jpg":"img/1.jpg","./2.jpg":"img/2.jpg","./3.jpg":"img/3.jpg","./4.jpg":"img/4.jpg","./5.jpg":"img/5.jpg","./slide-1.jpg":"img/slide-1.jpg"}],"js/menuItem.js":[function(require,module,exports) {
+},{"./1.gif":"img/1.gif","./2.gif":"img/2.gif","./3.gif":"img/3.gif","./4.gif":"img/4.gif","./5.gif":"img/5.gif"}],"js/menuItem.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -10744,7 +10741,7 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
-var images = Object.entries(require('../img/*.jpg'));
+var images = Object.entries(require('../img/*.gif'));
 var mousepos = {
   x: 0,
   y: 0
@@ -10775,11 +10772,8 @@ var MenuItem = /*#__PURE__*/function () {
   _createClass(MenuItem, [{
     key: "layout",
     value: function layout() {
-      // this is the element that gets its position animated (and perhaps other properties like the rotation etc..)
       this.DOM.reveal = document.createElement('div');
-      this.DOM.reveal.className = 'hover'; // the next two elements could actually be only one, the image element
-      // adding an extra wrapper (revealInner) around the image element with overflow hidden, gives us the possibility to scale the image inside
-
+      this.DOM.reveal.className = 'hover';
       this.DOM.revealInner = document.createElement('div');
       this.DOM.revealInner.className = 'hover-inner';
       this.DOM.revealImage = document.createElement('div');
@@ -10788,8 +10782,7 @@ var MenuItem = /*#__PURE__*/function () {
       this.DOM.revealInner.appendChild(this.DOM.revealImage);
       this.DOM.reveal.appendChild(this.DOM.revealInner);
       this.DOM.el.appendChild(this.DOM.reveal);
-    } // calculate the position/size of both the menu item and reveal element
-
+    }
   }, {
     key: "calcBounds",
     value: function calcBounds() {
@@ -10940,13 +10933,11 @@ var MenuItem = /*#__PURE__*/function () {
 
       this.animatableProperties.rotation.current = this.firstRAFCycle ? 0 : (0, _utils.map)(mouseDistanceX, 0, 100, 0, direction.x < 0 ? 60 : -60); // new filter value
 
-      this.animatableProperties.brightness.current = this.firstRAFCycle ? 1 : (0, _utils.map)(mouseDistanceX, 0, 100, 1, 4); // set up the interpolated values
-      // for the first cycle, both the interpolated values need to be the same so there's no "lerped" animation between the previous and current state
-
+      this.animatableProperties.brightness.current = this.firstRAFCycle ? 1 : (0, _utils.map)(mouseDistanceX, 0, 100, 1, 4);
       this.animatableProperties.tx.previous = this.firstRAFCycle ? this.animatableProperties.tx.current : (0, _utils.lerp)(this.animatableProperties.tx.previous, this.animatableProperties.tx.current, this.animatableProperties.tx.amt);
       this.animatableProperties.ty.previous = this.firstRAFCycle ? this.animatableProperties.ty.current : (0, _utils.lerp)(this.animatableProperties.ty.previous, this.animatableProperties.ty.current, this.animatableProperties.ty.amt);
       this.animatableProperties.rotation.previous = this.firstRAFCycle ? this.animatableProperties.rotation.current : (0, _utils.lerp)(this.animatableProperties.rotation.previous, this.animatableProperties.rotation.current, this.animatableProperties.rotation.amt);
-      this.animatableProperties.brightness.previous = this.firstRAFCycle ? this.animatableProperties.brightness.current : (0, _utils.lerp)(this.animatableProperties.brightness.previous, this.animatableProperties.brightness.current, this.animatableProperties.brightness.amt); // set styles
+      this.animatableProperties.brightness.previous = this.firstRAFCycle ? this.animatableProperties.brightness.current : (0, _utils.lerp)(this.animatableProperties.brightness.previous, this.animatableProperties.brightness.current, this.animatableProperties.brightness.amt);
 
       _gsap.gsap.set(this.DOM.reveal, {
         x: this.animatableProperties.tx.previous,
@@ -10965,7 +10956,7 @@ var MenuItem = /*#__PURE__*/function () {
 }();
 
 exports.default = MenuItem;
-},{"gsap":"../node_modules/gsap/index.js","./utils":"js/utils.js","../img/*.jpg":"img/*.jpg"}],"js/menu.js":[function(require,module,exports) {
+},{"gsap":"../node_modules/gsap/index.js","./utils":"js/utils.js","../img/*.gif":"img/*.gif"}],"js/menu.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -11122,7 +11113,7 @@ var menuEl = document.querySelector('[data-scroll-container]');
       scrub: true,
       pin: ".items",
       start: "0 0",
-      end: "+=126%"
+      end: "+=250%"
     },
     onComplete: aClass,
     onUpdate: rClass
@@ -11130,19 +11121,19 @@ var menuEl = document.querySelector('[data-scroll-container]');
     translateY: 0,
     scale: 1
   }, {
-    delay: 2,
+    delay: 2.7,
     duration: 4.5,
-    translateY: 0,
+    translateY: 18,
     scale: 0.24,
     ease: "[0.74,0.2,1,-0.22]"
   }).to(".item.active", {
-    duration: 3,
+    duration: 4,
     fontSize: 108
   }, 0).to(".item.active", {
     delay: 5,
     duration: 2,
-    color: "#edeee9",
-    fontSize: 35
+    color: "#E5E5E5",
+    fontSize: 15
   }, 0).to(".menu", {
     duration: 3,
     translateY: -300
@@ -11197,7 +11188,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49705" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62568" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

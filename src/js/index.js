@@ -50,14 +50,14 @@ preloader('.item').then(() => {
         scrub: true,
         pin: ".items",
         start: "0 0",
-        end: "+=126%"
+        end: "+=250%"
       },
       onComplete: aClass,
       onUpdate: rClass
     })
 
-    .fromTo(".item.active img", {translateY: 0, scale: 1}, {delay: 2, duration: 4.5, translateY: 0, scale: 0.24, ease: "[0.74,0.2,1,-0.22]"})
-    .to(".item.active", {duration: 3, fontSize: 108}, 0).to(".item.active", {delay: 5, duration: 2, color: "#edeee9",fontSize: 35}, 0)
+    .fromTo(".item.active img", {translateY: 0, scale: 1}, {delay: 2.7, duration: 4.5, translateY: 18, scale: 0.24, ease: "[0.74,0.2,1,-0.22]"})
+    .to(".item.active", {duration: 4, fontSize: 108}, 0).to(".item.active", {delay: 5, duration: 2, color: "#E5E5E5",fontSize: 15}, 0)
     .to(".menu", {duration: 3, translateY: -300}, 0).to("#trigger", {duration: 4, translateX: 100}, 0)
     .fromTo("header", {background: "linear-gradient(to bottom, rgba(229,229,229,0) 0%,rgba(0,0,0,0) 100%)"}, {background: "linear-gradient(to bottom, rgba(229,229,229,0.65) 0%,rgba(0,0,0,0) 100%)"})
 

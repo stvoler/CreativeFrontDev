@@ -214,6 +214,14 @@ a {
       .item-text{
         display: block;
       }
+      .hover{
+        display: block;
+      }
+    }
+  }
+  .item.active{
+    .hover{
+      display: none;
     }
   }
 }

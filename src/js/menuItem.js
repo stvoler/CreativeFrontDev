@@ -1,6 +1,6 @@
 import {gsap} from 'gsap';
 import { map, lerp, clamp, getMousePos } from './utils';
-const images = Object.entries(require('../img/*.jpg'));
+const images = Object.entries(require('../img/*.gif'));
 
 let mousepos = {x: 0, y: 0};
 let mousePosCache = mousepos;
@@ -18,11 +18,8 @@ export default class MenuItem {
         this.initEvents();
     }
     layout() {
-        // this is the element that gets its position animated (and perhaps other properties like the rotation etc..)
         this.DOM.reveal = document.createElement('div');
         this.DOM.reveal.className = 'hover';
-        // the next two elements could actually be only one, the image element
-        // adding an extra wrapper (revealInner) around the image element with overflow hidden, gives us the possibility to scale the image inside
         this.DOM.revealInner = document.createElement('div');
         this.DOM.revealInner.className = 'hover-inner';
         this.DOM.revealImage = document.createElement('div');
@@ -33,7 +30,7 @@ export default class MenuItem {
         this.DOM.reveal.appendChild(this.DOM.revealInner);
         this.DOM.el.appendChild(this.DOM.reveal);
     }
-    // calculate the position/size of both the menu item and reveal element
+
     calcBounds() {
         this.bounds = {
             el: this.DOM.el.getBoundingClientRect(),
@@ -129,7 +126,6 @@ export default class MenuItem {
         if ( this.firstRAFCycle ) {
             this.calcBounds();
         }
-
         // calculate the mouse distance (current vs previous cycle)
         const mouseDistanceX = clamp(Math.abs(mousePosCache.x - mousepos.x), 0, 100);
         // direction where the mouse is moving
@@ -146,14 +142,11 @@ export default class MenuItem {
         // new filter value
         this.animatableProperties.brightness.current = this.firstRAFCycle ? 1 : map(mouseDistanceX,0,100,1,4);
 
-        // set up the interpolated values
-        // for the first cycle, both the interpolated values need to be the same so there's no "lerped" animation between the previous and current state
         this.animatableProperties.tx.previous = this.firstRAFCycle ? this.animatableProperties.tx.current : lerp(this.animatableProperties.tx.previous, this.animatableProperties.tx.current, this.animatableProperties.tx.amt);
         this.animatableProperties.ty.previous = this.firstRAFCycle ? this.animatableProperties.ty.current : lerp(this.animatableProperties.ty.previous, this.animatableProperties.ty.current, this.animatableProperties.ty.amt);
         this.animatableProperties.rotation.previous = this.firstRAFCycle ? this.animatableProperties.rotation.current : lerp(this.animatableProperties.rotation.previous, this.animatableProperties.rotation.current, this.animatableProperties.rotation.amt);
         this.animatableProperties.brightness.previous = this.firstRAFCycle ? this.animatableProperties.brightness.current : lerp(this.animatableProperties.brightness.previous, this.animatableProperties.brightness.current, this.animatableProperties.brightness.amt);
         
-        // set styles
         gsap.set(this.DOM.reveal, {
             x: this.animatableProperties.tx.previous,
             y: this.animatableProperties.ty.previous,
